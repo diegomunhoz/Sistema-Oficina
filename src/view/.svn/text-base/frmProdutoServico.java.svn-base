@@ -1,0 +1,537 @@
+
+/*
+ * frmProdutoServico.java
+ *
+ * Created on 30/04/2012, 16:25:23
+ */
+package view;
+
+import controller.ControllerProdutoServico;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author Diego Viana
+ */
+public class frmProdutoServico extends javax.swing.JFrame {
+
+    public frmProdutoServico() {
+        initComponents();
+        setExtendedState(frmProdutoServico.MAXIMIZED_BOTH);
+        setResizable(false);
+        setLocationRelativeTo(null);
+    }
+    ControllerProdutoServico controllerProdutoServico = new ControllerProdutoServico(frmProdutoServico.this);
+
+    public JComboBox getComboBoxTipo() {
+        return comboBoxTipo;
+    }
+    
+    public void setComboBoxTipo(JComboBox comboBoxTipo) {
+        this.comboBoxTipo = comboBoxTipo;
+    }
+
+    public JTextField getEdtCodigo() {
+        return edtCodigo;
+    }
+
+    public void setEdtCodigo(JTextField edtCodigo) {
+        this.edtCodigo = edtCodigo;
+    }
+
+    public JTextField getEdtDescricao() {
+        return edtDescricao;
+    }
+
+    public void setEdtDescricao(JTextField edtDescricao) {
+        this.edtDescricao = edtDescricao;
+    }
+
+    public JTextField getEdtPesquisa() {
+        return edtPesquisa;
+    }
+
+    public void setEdtPesquisa(JTextField edtPesquisa) {
+        this.edtPesquisa = edtPesquisa;
+    }
+
+    public JFormattedTextField getEdtValor() {
+        return edtValor;
+    }
+
+    public void setEdtValor(JFormattedTextField edtValor) {
+        this.edtValor = edtValor;
+    }
+
+    public JTable getTabelaProdutoServico() {
+        return tabelaProdutoServico;
+    }
+
+    public void setTabelaProdutoServico(JTable tabelaProdutoServico) {
+        this.tabelaProdutoServico = tabelaProdutoServico;
+    }
+
+    public JTabbedPane getTabulacao() {
+        return tabulacao;
+    }
+
+    public void setTabulacao(JTabbedPane tabulacao) {
+        this.tabulacao = tabulacao;
+    }
+
+    public JLabel getLblEstoque() {
+        return lblEstoque;
+    }
+
+    public void setLblEstoque(JLabel lblEstoque) {
+        this.lblEstoque = lblEstoque;
+    }
+
+    public JLabel getLblEstoqueMinimo() {
+        return lblEstoqueMinimo;
+    }
+
+    public void setLblEstoqueMinimo(JLabel lblEstoqueMinimo) {
+        this.lblEstoqueMinimo = lblEstoqueMinimo;
+    }
+
+    public JFormattedTextField getEdtEstoque() {
+        return edtEstoque;
+    }
+
+    public void setEdtEstoque(JFormattedTextField edtEstoque) {
+        this.edtEstoque = edtEstoque;
+    }
+
+    public JFormattedTextField getEdtEstoqueMinimo() {
+        return edtEstoqueMinimo;
+    }
+
+    public void setEdtEstoqueMinimo(JFormattedTextField edtEstoqueMinimo) {
+        this.edtEstoqueMinimo = edtEstoqueMinimo;
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        tabulacao = new javax.swing.JTabbedPane();
+        jPanelConsulta = new javax.swing.JPanel();
+        painelConsulta = new javax.swing.JPanel();
+        PainelTabela = new javax.swing.JScrollPane();
+        tabelaProdutoServico = new javax.swing.JTable();
+        edtPesquisa = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        btPesquisar = new javax.swing.JButton();
+        painelBotoesConsulta = new javax.swing.JPanel();
+        btnExcluir = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
+        jPanelDados = new javax.swing.JPanel();
+        painelBotoesCadastro = new javax.swing.JPanel();
+        btnCancelar = new javax.swing.JButton();
+        btnGravar = new javax.swing.JButton();
+        painelCadastro = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        edtCodigo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        edtDescricao = new javax.swing.JTextField();
+        comboBoxTipo = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblEstoque = new javax.swing.JLabel();
+        lblEstoqueMinimo = new javax.swing.JLabel();
+        edtValor = new javax.swing.JFormattedTextField();
+        edtEstoque = new javax.swing.JFormattedTextField();
+        edtEstoqueMinimo = new javax.swing.JFormattedTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("::..Cadastro de Produto e Serviço..::");
+
+        tabulacao.setEnabled(false);
+        tabulacao.setFont(new java.awt.Font("Arial", 3, 12));
+
+        tabelaProdutoServico.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        PainelTabela.setViewportView(tabelaProdutoServico);
+
+        jLabel10.setText("Nome do Produto ou Serviço:");
+
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisar.png"))); // NOI18N
+        btPesquisar.setText("Pesquisar");
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painelConsultaLayout = new javax.swing.GroupLayout(painelConsulta);
+        painelConsulta.setLayout(painelConsultaLayout);
+        painelConsultaLayout.setHorizontalGroup(
+            painelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btPesquisar)
+                .addContainerGap(206, Short.MAX_VALUE))
+            .addGroup(painelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(painelConsultaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(PainelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        painelConsultaLayout.setVerticalGroup(
+            painelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(edtPesquisa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(236, Short.MAX_VALUE))
+            .addGroup(painelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelConsultaLayout.createSequentialGroup()
+                    .addContainerGap(37, Short.MAX_VALUE)
+                    .addComponent(PainelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/database_delete.png"))); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
+        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/database_add.png"))); // NOI18N
+        btnNovo.setText("Cadastrar Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
+
+        btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/database_edit.png"))); // NOI18N
+        btnAlterar.setText("Exibir / Alterar Dados");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painelBotoesConsultaLayout = new javax.swing.GroupLayout(painelBotoesConsulta);
+        painelBotoesConsulta.setLayout(painelBotoesConsultaLayout);
+        painelBotoesConsultaLayout.setHorizontalGroup(
+            painelBotoesConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelBotoesConsultaLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        painelBotoesConsultaLayout.setVerticalGroup(
+            painelBotoesConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelBotoesConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelBotoesConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnNovo)
+                    .addComponent(btnAlterar))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelConsultaLayout = new javax.swing.GroupLayout(jPanelConsulta);
+        jPanelConsulta.setLayout(jPanelConsultaLayout);
+        jPanelConsultaLayout.setHorizontalGroup(
+            jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painelConsulta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelBotoesConsulta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanelConsultaLayout.setVerticalGroup(
+            jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(painelBotoesConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        tabulacao.addTab("Consultar Produto ou Serviço", jPanelConsulta);
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        btnGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/database_save.png"))); // NOI18N
+        btnGravar.setText("Gravar");
+        btnGravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGravarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painelBotoesCadastroLayout = new javax.swing.GroupLayout(painelBotoesCadastro);
+        painelBotoesCadastro.setLayout(painelBotoesCadastroLayout);
+        painelBotoesCadastroLayout.setHorizontalGroup(
+            painelBotoesCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelBotoesCadastroLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
+        );
+        painelBotoesCadastroLayout.setVerticalGroup(
+            painelBotoesCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelBotoesCadastroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelBotoesCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGravar)
+                    .addComponent(btnCancelar))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jLabel1.setText("Código (Gerado pelo Sistema):");
+
+        edtCodigo.setEditable(false);
+        edtCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel2.setText("Descrição:");
+
+        comboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione o tipo de cadastro", "Serviço", "Produto" }));
+        comboBoxTipo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxTipoItemStateChanged(evt);
+            }
+        });
+
+        jLabel6.setText("Tipo do Cadastro:");
+
+        jLabel3.setText("Valor:");
+
+        lblEstoque.setText("Estoque:");
+
+        lblEstoqueMinimo.setText("Estoque Mínimo:");
+
+        edtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        edtEstoque.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        edtEstoqueMinimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        javax.swing.GroupLayout painelCadastroLayout = new javax.swing.GroupLayout(painelCadastro);
+        painelCadastro.setLayout(painelCadastroLayout);
+        painelCadastroLayout.setHorizontalGroup(
+            painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelCadastroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6)
+                    .addComponent(lblEstoqueMinimo)
+                    .addComponent(lblEstoque))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(edtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(edtEstoqueMinimo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(edtEstoque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
+                .addContainerGap(157, Short.MAX_VALUE))
+        );
+        painelCadastroLayout.setVerticalGroup(
+            painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelCadastroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(edtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(comboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(edtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(edtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEstoque)
+                    .addComponent(edtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEstoqueMinimo)
+                    .addComponent(edtEstoqueMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
+        jPanelDados.setLayout(jPanelDadosLayout);
+        jPanelDadosLayout.setHorizontalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painelCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelBotoesCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanelDadosLayout.setVerticalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(painelBotoesCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        tabulacao.addTab("Dados do Produto ou Serviço", jPanelDados);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabulacao, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        this.controllerProdutoServico.pesquisarPorParametro();
+}//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        this.controllerProdutoServico.excluirProdutoServico();
+}//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        this.controllerProdutoServico.cadastrarNovoProdutoServico();
+}//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        this.controllerProdutoServico.alterarProdutoServico();
+}//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.controllerProdutoServico.tabPesquisa();
+}//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGravarActionPerformed
+        this.controllerProdutoServico.gravarProdutoServico();
+}//GEN-LAST:event_btnGravarActionPerformed
+
+    private void comboBoxTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxTipoItemStateChanged
+        this.controllerProdutoServico.verificarTipoCadastro();
+    }//GEN-LAST:event_comboBoxTipoItemStateChanged
+
+    public static void main(String args[]) {
+       //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(frmOrcamentoVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmOrcamentoVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmOrcamentoVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmOrcamentoVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new frmProdutoServico().setVisible(true);
+            }
+        });
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane PainelTabela;
+    private javax.swing.JButton btPesquisar;
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnGravar;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JComboBox comboBoxTipo;
+    private javax.swing.JTextField edtCodigo;
+    private javax.swing.JTextField edtDescricao;
+    private javax.swing.JFormattedTextField edtEstoque;
+    private javax.swing.JFormattedTextField edtEstoqueMinimo;
+    private javax.swing.JTextField edtPesquisa;
+    private javax.swing.JFormattedTextField edtValor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanelConsulta;
+    private javax.swing.JPanel jPanelDados;
+    private javax.swing.JLabel lblEstoque;
+    private javax.swing.JLabel lblEstoqueMinimo;
+    private javax.swing.JPanel painelBotoesCadastro;
+    private javax.swing.JPanel painelBotoesConsulta;
+    private javax.swing.JPanel painelCadastro;
+    private javax.swing.JPanel painelConsulta;
+    private javax.swing.JTable tabelaProdutoServico;
+    private javax.swing.JTabbedPane tabulacao;
+    // End of variables declaration//GEN-END:variables
+}

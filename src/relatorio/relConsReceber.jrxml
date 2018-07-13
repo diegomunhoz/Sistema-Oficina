@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatório de Orçamento/Venda" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`nome` AS cliente_nome,
+     orcamentovenda.`valorReceber` AS orcamentovenda_valorReceber,
+     orcamentovenda.`data` AS orcamentovenda_data,
+     orcamentovenda.`dataVencimento` AS orcamentovenda_dataVencimento,
+     cliente.`telefone` AS cliente_telefone,
+     cliente.`codigo` AS cliente_codigo,
+     orcamentovenda.`codigo` AS orcamentovenda_codigo
+FROM
+     `cliente` cliente INNER JOIN `orcamentovenda` orcamentovenda ON cliente.`codigo` = orcamentovenda.`cliente`
+WHERE
+     orcamentovenda.`situacao` = 'Não Paga']]>
+	</queryString>
+	<field name="cliente_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_valorReceber" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_dataVencimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente_telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente_codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="CLIENTE">
+		<groupExpression><![CDATA[$F{cliente_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="22" backcolor="#CCCCCC"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="2" width="43" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Cliente:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="49" y="2" width="204" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="VENDA">
+		<groupExpression><![CDATA[$F{orcamentovenda_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement x="0" y="0" width="37" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Data:]]></text>
+				</staticText>
+				<textField pattern="dd-MM-yyyy">
+					<reportElement x="43" y="0" width="52" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{orcamentovenda_data}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd-MM-yyyy">
+					<reportElement x="189" y="0" width="52" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{orcamentovenda_dataVencimento}==null?$F{orcamentovenda_data}:$F{orcamentovenda_dataVencimento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="119" y="0" width="60" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Data Vecto:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="253" y="0" width="60" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Vlr Receber:]]></text>
+				</staticText>
+				<textField pattern="">
+					<reportElement x="323" y="0" width="52" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{orcamentovenda_valorReceber}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="42">
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="39"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="25" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Contas a Receber]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatório de Orçamento/Venda" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SITUACAO" class="java.lang.String"/>
+	<parameter name="DT_INICIO" class="java.util.Date"/>
+	<parameter name="DT_FIM" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+     orcamentovenda.`valorTotal` AS orcamentovenda_valorTotal,
+     orcamentovenda.`valorReceber` AS orcamentovenda_valorReceber,
+     orcamentovenda.`desconto` AS orcamentovenda_desconto,
+     orcamentovenda.`data` AS orcamentovenda_data,
+     orcamentovenda.`situacao` AS orcamentovenda_situacao,
+     itemorcamentovenda.`qtde` AS itemorcamentovenda_qtde,
+     itemorcamentovenda.`valorTotal` AS itemorcamentovenda_valorTotal,
+     produtoservico.`nome` AS produtoservico_nome,
+     cliente.`nome` AS cliente_nome,
+     orcamentovenda.`codigo` AS orcamentovenda_codigo,
+     orcamentovenda.`tipoCadastro` AS orcamentovenda_tipoCadastro,
+     itemorcamentovenda.`codigo` AS itemorcamentovenda_codigo,
+     orcamentovenda.`dataVencimento` AS orcamentovenda_dataVencimento,
+     produtoservico.`valor` AS produtoservico_valor
+FROM
+     `orcamentovenda` orcamentovenda INNER JOIN `itemorcamentovenda` itemorcamentovenda ON orcamentovenda.`codigo` = itemorcamentovenda.`orcamentoVenda`
+     INNER JOIN `produtoservico` produtoservico ON itemorcamentovenda.`produtoServico` = produtoservico.`codigo`
+     INNER JOIN `cliente` cliente ON orcamentovenda.`cliente` = cliente.`codigo`
+WHERE
+     orcamentovenda.`situacao` = $P{SITUACAO}
+AND
+     orcamentovenda.`data` BETWEEN $P{DT_INICIO} AND $P{DT_FIM}
+GROUP BY
+     orcamentovenda.`codigo`,
+     itemorcamentovenda.`codigo`]]>
+	</queryString>
+	<field name="orcamentovenda_valorTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_valorReceber" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_desconto" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="itemorcamentovenda_qtde" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="itemorcamentovenda_valorTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="produtoservico_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente_nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_tipoCadastro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="itemorcamentovenda_codigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orcamentovenda_dataVencimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="produtoservico_valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="VENDA">
+		<groupExpression><![CDATA[$F{orcamentovenda_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="49">
+				<rectangle>
+					<reportElement x="0" y="2" width="555" height="25" backcolor="#CCCCCC"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="12" y="5" width="43" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Cliente:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="59" y="5" width="204" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_nome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="324" y="5" width="37" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Data:]]></text>
+				</staticText>
+				<textField pattern="dd-MM-yyyy">
+					<reportElement x="365" y="5" width="52" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{orcamentovenda_data}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="427" y="5" width="60" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Data Vecto:]]></text>
+				</staticText>
+				<textField pattern="dd-MM-yyyy">
+					<reportElement x="491" y="5" width="52" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{orcamentovenda_dataVencimento}==null?$F{orcamentovenda_data}:$F{orcamentovenda_dataVencimento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="28" width="100" height="20"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Descrição]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="182" y="28" width="81" height="20"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Vlr Unitário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="353" y="28" width="31" height="20"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Qtde]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="451" y="27" width="46" height="20"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+					<text><![CDATA[Vlr Total]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="49">
+				<staticText>
+					<reportElement x="391" y="4" width="54" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Vlr Total:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="451" y="4" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{orcamentovenda_valorTotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="353" y="26" width="92" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Vlr Receber:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="451" y="26" width="104" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{orcamentovenda_valorReceber}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="200" y="26" width="92" height="20"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Desc:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="298" y="26" width="44" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{orcamentovenda_desconto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="59" y="24" width="100" height="20"/>
+					<textElement>
+						<font isUnderline="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{orcamentovenda_tipoCadastro}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="PRODUTO">
+		<groupExpression><![CDATA[$F{itemorcamentovenda_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField>
+					<reportElement x="182" y="2" width="100" height="20"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{produtoservico_valor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="2" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{produtoservico_nome}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="353" y="2" width="64" height="20"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$F{itemorcamentovenda_qtde}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="451" y="2" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{itemorcamentovenda_valorTotal}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="64">
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="39"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="25" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Vendas de Produto e Serviço]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="41" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{orcamentovenda_situacao}.toUpperCase()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
